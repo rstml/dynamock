@@ -1,0 +1,70 @@
+{
+  "Description": "Sample DynamoDB CloudFormation Schema",
+  "AWSTemplateFormatVersion": "2010-09-09",
+
+  "Parameters" : {
+    "ReadCapacityUnitsParameter" : {
+      "Type" : "Number",
+      "Default" : 5,
+      "MaxValue" : 10,
+      "Description" : "DynamoDB Read Capacity Units [1-50]. Free tier only up to 25."
+    },
+    "WriteCapacityUnitsParameter" : {
+      "Type" : "Number",
+      "Default" : 5,
+      "MaxValue" : 10,
+      "Description" : "DynamoDB Read Capacity Units [1-50]. Free tier only up to 25."
+    }
+  },
+
+  "Resources": {
+
+    "DynamoTableProducts": {
+      "Type": "AWS::DynamoDB::Table",
+      "DependsOn" : "DynamoTableTags",
+      "Properties": {
+        "TableName" : "Products",
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "uuid",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "uuid",
+            "KeyType": "HASH"
+          }
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": { "Ref" : "ReadCapacityUnitsParameter" },
+          "WriteCapacityUnits": { "Ref" : "WriteCapacityUnitsParameter" }
+        }
+      }
+    },
+
+    "DynamoTableEmployees": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "TableName" : "Employees",
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "username",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "KeyType": "HASH",
+            "AttributeName": "username"
+          }
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": { "Ref" : "ReadCapacityUnitsParameter" },
+          "WriteCapacityUnits": { "Ref" : "WriteCapacityUnitsParameter" }
+        }
+      }
+    }
+
+  }
+}

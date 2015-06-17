@@ -1,0 +1,46 @@
+{
+  "Products" : [
+    {
+      "uuid": {
+        "S": "ca67e931-5c54-41aa-976a-af25c9c65a0a"
+      },
+      "name": {
+        "S": "Chocolate Banana"
+      },
+      "description": {
+        "S": "Classic recipe."
+      },
+      "rating": {
+        "N": "0"
+      },
+      "tags": {
+        "SS": [
+          "banana",
+          "chocolate",
+          "sweet"
+        ]
+      }
+    },
+    {
+      "uuid": {
+        "S": "7a2dd545-c6b1-4788-8d15-bd1c07d294cc"
+      },
+      "name": {
+        "S": "Blueberry Pancake"
+      },
+      "description": {
+        "S": "Sweet pancakes with blueberry."
+      },
+      "rating": {
+        "N": "0"
+      },
+      "tags": {
+        "SS": [
+          "blueberry",
+          "candy",
+          "sweet"
+        ]
+      }
+    }
+  ]
+}
