@@ -8,7 +8,7 @@
  *   npm install aws-sdk
  *   node dynamock.js <path/to/dynamodb.json> <path/to/fixtures.json>
  *
- * Author: Rustam Aliyev <rustam@flavery.com>
+ * Author: Rustam Aliyev <rustam@code.az>
  */
 
 console.log('Starting dynalite...');
